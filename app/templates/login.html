@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %} Login {% endblock title %}
+{% block css %}
+.butn
+{
+    width:20%;
+}
+{% endblock %}
+{% block body %}
+
+<div class="container">
+    <div class="row justify-content-around mt-5">
+        <div class="col-sm-6">
+         <h3 class="text-white text-center">Login Form </h3>
+        </div>
+    </div>
+     <div class="row justify-content-around mt-5">
+        <div class="col-sm-6">
+            <form action="" method="post" class="bg-white p-3 rounded shadow">
+              {% csrf_token %}
+              {% for fm in form %}
+                 {{fm.label_tag}}
+                  {{fm}}
+              <small class="text-danger">{{fm.errors}}</small>
+
+              {% endfor %}
+              <input type="submit" value="Login " class="btn btn-primary mt-3">
+
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock body %}
